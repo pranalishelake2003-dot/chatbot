@@ -1,0 +1,50 @@
+{
+  "intents": [
+    {
+      "tag": "ai",
+      "patterns": [
+        "what is ai",
+        "define ai",
+        "ai meaning"
+      ],
+      "responses": [
+        "AI means Artificial Intelligence. It makes machines smart like humans."
+      ]
+    },
+
+    {
+      "tag": "python",
+      "patterns": [
+        "what is python",
+        "define python",
+        "python meaning"
+      ],
+      "responses": [
+        "Python is a programming language used for AI, web development and data science."
+      ]
+    },
+
+    {
+      "tag": "machine learning",
+      "patterns": [
+        "what is machine learning",
+        "ml meaning",
+        "define ml"
+      ],
+      "responses": [
+        "Machine Learning is a part of AI where machines learn from data."
+      ]
+    },
+
+    {
+      "tag": "chatbot",
+      "patterns": [
+        "what is chatbot",
+        "define chatbot"
+      ],
+      "responses": [
+        "A chatbot is a software that talks with humans automatically."
+      ]
+    }
+  ]
+}
