@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,175 +11,425 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
 }
 
 body{
-    background:linear-gradient(135deg,#dcdfe1,#ffffff);
+    width:100%;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
+    background:linear-gradient(rgb(231,232,232),rgb(231,232,232));
+    overflow:hidden;
 }
+
+/* =========================
+   CHAT CONTAINER
+========================= */
 
 .chat-container{
-    width:420px;
-    height:700px;
-    background:#c1ebf4;
-    border-radius:20px;
+    width:430px;
+    height:95vh;
+    max-height:750px;
+    background:#fff;
+    border-radius:25px;
     overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
     display:flex;
     flex-direction:column;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
 }
+
+/* =========================
+   HEADER
+========================= */
 
 .header{
-    background:#62b3f4;
-    color:white;
-    text-align:center;
-    padding:18px;
+    height:80px;
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    display:flex;
+    align-items:center;
+    padding:20px;
+    color:#fff;
+    flex-shrink:0;
 }
 
-.header h2{
-    font-size:26px;
+.logo{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    margin-right:15px;
 }
 
-.header p{
-    margin-top:5px;
-    font-size:14px;
+.logo span{
+    color:#2563eb;
 }
+
+.title h2{
+    font-size:24px;
+}
+
+.title p{
+    font-size:13px;
+    opacity:.9;
+}
+
+/* =========================
+   CHAT BOX
+========================= */
 
 .chat-box{
     flex:1;
-    padding:20px;
-    background:#e1e9ee;
     overflow-y:auto;
+    padding:20px;
+    background:#c9deef;
     display:flex;
     flex-direction:column;
+    scroll-behavior:smooth;
 }
+
+/* =========================
+   MESSAGE ROWS
+========================= */
+
+.bot-row{
+    display:flex;
+    align-items:flex-end;
+    margin-bottom:20px;
+}
+
+.user-row{
+    display:flex;
+    justify-content:flex-end;
+    align-items:flex-end;
+    margin-bottom:20px;
+}
+
+.avatar{
+    font-size:32px;
+    margin-right:10px;
+}
+
+.user-avatar{
+    font-size:32px;
+    margin-left:10px;
+}
+
+/* =========================
+   BOT MESSAGE
+========================= */
 
 .bot{
-    background:white;
-    color:#222;
-    padding:12px 15px;
-    border-radius:15px;
+    background:#fff;
+    padding:15px;
+    border-radius:18px 18px 18px 6px;
     max-width:75%;
-    margin-bottom:15px;
-    align-self:flex-start;
-    box-shadow:0 2px 5px rgba(0,0,0,.2);
+    line-height:1.7;
+    word-wrap:break-word;
+    box-shadow:0 3px 8px rgba(0,0,0,.15);
 }
 
+/* =========================
+   USER MESSAGE
+========================= */
+
 .user{
-    background:#c6e2f8;
-    color:#222;
-    padding:12px 15px;
-    border-radius:15px;
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    color:#fff;
+    padding:15px;
+    border-radius:18px 18px 6px 18px;
     max-width:75%;
-    margin-bottom:15px;
-    align-self:flex-end;
-    box-shadow:0 2px 5px rgba(0,0,0,.2);
+    line-height:1.7;
+    word-wrap:break-word;
 }
+
+.time{
+    font-size:11px;
+    margin-top:8px;
+    opacity:.7;
+    text-align:right;
+}
+
+/* =========================
+   INPUT
+========================= */
 
 .input-box{
     display:flex;
-    padding:12px;
-    background:white;
-    border-top:1px solid #ccc;
+    align-items:center;
+    padding:15px;
+    background:#fff;
+    border-top:1px solid #ddd;
+    flex-shrink:0;
 }
 
-input{
+.input-box input{
     flex:1;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:25px;
-    outline:none;
-    font-size:15px;
-}
-
-input:focus{
-    border:2px solid #0f489d;
-}
-
-button{
-    margin-left:10px;
-    width:90px;
+    padding:15px;
     border:none;
-    border-radius:25px;
-    background:#0f9d58;
-    color:white;
+    outline:none;
+    border-radius:30px;
+    background:#cee3f1;
+    font-size:16px;
+}
+
+.input-box button{
+    width:90px;
+    margin-left:10px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    color:#fff;
     font-size:16px;
     cursor:pointer;
     transition:.3s;
 }
 
-button:hover{
-    background:#087f45;
+.input-box button:hover{
+    transform:scale(1.05);
 }
+
+/* =========================
+   SCROLLBAR
+========================= */
 
 ::-webkit-scrollbar{
     width:6px;
 }
 
 ::-webkit-scrollbar-thumb{
-    background:#bbb;
-    border-radius:10px;
+    background:#999;
+    border-radius:20px;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width:768px){
+
+    body{
+        background:#fff;
+    }
+
+    .chat-container{
+        width:100%;
+        height:100vh;
+        max-width:100%;
+        max-height:100%;
+        border-radius:0;
+        box-shadow:none;
+    }
+
+    .header{
+        height:70px;
+        padding:15px;
+    }
+
+    .logo{
+        width:45px;
+        height:45px;
+        font-size:22px;
+    }
+
+    .title h2{
+        font-size:20px;
+    }
+
+    .title p{
+        font-size:12px;
+    }
+
+    .chat-box{
+        padding:15px;
+    }
+
+    .bot,
+    .user{
+        max-width:88%;
+        font-size:15px;
+    }
+
+    .avatar,
+    .user-avatar{
+        font-size:26px;
+    }
+
+    .input-box{
+        padding:10px;
+    }
+
+    .input-box input{
+        padding:13px;
+        font-size:16px;
+    }
+
+    .input-box button{
+        width:70px;
+        font-size:14px;
+    }
+
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="chat-container">
 
-    <div class="header">
-        <h2>🤖 AI Chatbot</h2>
-        <p>Machine Learning Chatbot</p>
-    </div>
+<div class="header">
 
-    <div class="chat-box" id="chat-box">
+<div class="logo">
+<span>🤖</span>
+</div>
 
-        <div class="bot">
-            👋 Hello! Welcome to AI Chatbot.
-        </div>
+<div class="title">
 
-    </div>
+<h2>AI chatbot</h2>
 
-    <div class="input-box">
-
-        <input
-        type="text"
-        id="user-input"
-        placeholder="Type your message...">
-
-        <button id="send-btn">
-            Send
-        </button>
-
-    </div>
+<p>Powered by Gemini AI</p>
 
 </div>
 
+</div>
+
+<div class="chat-box" id="chat-box">
+
+<div class="bot-row">
+
+<div class="avatar">
+🤖
+</div>
+
+<div class="bot">
+
+👋 Hello! Welcome.
+
+I'm your AI Assistant.
+
+Ask me anything.
+
+<div class="time">
+09:00
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="input-box">
+
+<input
+type="text"
+id="user-input"
+placeholder="Type your message...">
+
+<button id="send-btn">
+Send
+</button>
+
+</div>
 <script>
 
-const sendBtn=document.getElementById("send-btn");
-const userInput=document.getElementById("user-input");
-const chatBox=document.getElementById("chat-box");
+const sendBtn = document.getElementById("send-btn");
+const userInput = document.getElementById("user-input");
+const chatBox = document.getElementById("chat-box");
 
+// Current Time
+function getTime(){
+
+    const now = new Date();
+
+    let h = now.getHours();
+    let m = now.getMinutes();
+
+    if(m < 10){
+        m = "0" + m;
+    }
+
+    return h + ":" + m;
+
+}
+
+
+// Send Message
 function sendMessage(){
 
-    let message=userInput.value.trim();
+    const message = userInput.value.trim();
 
     if(message===""){
         return;
     }
 
-    chatBox.innerHTML+=`
+    // User Message
+    chatBox.innerHTML += `
+
+    <div class="user-row">
+
         <div class="user">
+
             ${message}
+
+            <div class="time">
+
+                ${getTime()}
+
+            </div>
+
         </div>
+
+        <div class="user-avatar">
+
+            
+
+        </div>
+
+    </div>
+
     `;
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    userInput.value = "";
+
+
+
+    // Typing Animation
+    chatBox.innerHTML += `
+
+    <div class="bot-row" id="typing">
+
+        <div class="avatar">
+
+            
+
+        </div>
+
+        <div class="bot">
+
+            <span id="typing-text">
+
+                Typing...
+
+            </span>
+
+        </div>
+
+    </div>
+
+    `;
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+
 
     fetch("/chat",{
 
@@ -191,7 +440,9 @@ function sendMessage(){
         },
 
         body:JSON.stringify({
+
             message:message
+
         })
 
     })
@@ -200,27 +451,74 @@ function sendMessage(){
 
     .then(data=>{
 
-        chatBox.innerHTML+=`
+        document.getElementById("typing").remove();
 
-            <div class="bot">
+        chatBox.innerHTML += `
 
-                ${data.response}
+        <div class="bot-row">
+
+            <div class="avatar">
+
+                🤖
 
             </div>
 
+            <div class="bot">
+
+                <div class="answer">
+
+                    ${data.response}
+
+                </div>
+
+                <div style="display:flex;
+                            justify-content:space-between;
+                            align-items:center;
+                            margin-top:12px;">
+
+                    <small style="color:gray;">
+
+                        ${getTime()}
+
+                    </small>
+
+                    
+
+                    
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
         `;
 
-        chatBox.scrollTop=chatBox.scrollHeight;
+        chatBox.scrollTop = chatBox.scrollHeight;
 
     })
 
-    .catch(error=>{
+    .catch(()=>{
 
-        chatBox.innerHTML+=`
+        document.getElementById("typing").remove();
 
-        <div class="bot">
+        chatBox.innerHTML += `
 
-        Server Error
+        <div class="bot-row">
+
+            <div class="avatar">
+
+                🤖
+
+            </div>
+
+            <div class="bot">
+
+                ❌ Server Error
+
+            </div>
 
         </div>
 
@@ -228,15 +526,74 @@ function sendMessage(){
 
     });
 
-    userInput.value="";
-
 }
 
 sendBtn.addEventListener("click",sendMessage);
 
-userInput.addEventListener("keypress",function(event){
+userInput.addEventListener("keypress",function(e){
 
-    if(event.key==="Enter"){
+    if(e.key==="Enter"){
+
+        sendMessage();
+
+    }
+
+});
+function copyText(button){
+
+    const text = button.parentElement.parentElement.querySelector(".answer").innerText;
+
+    navigator.clipboard.writeText(text);
+
+    button.innerHTML="✔ Copied";
+
+    setTimeout(function(){
+
+        button.innerHTML="📋 Copy";
+
+    },2000);
+
+}
+
+
+// Auto Focus
+userInput.focus();
+
+
+// Typing Animation
+setInterval(function(){
+
+    const typing=document.getElementById("typing-text");
+
+    if(typing){
+
+        if(typing.innerHTML=="Typing..."){
+
+            typing.innerHTML="Typing.";
+
+        }
+
+        else if(typing.innerHTML=="Typing."){
+
+            typing.innerHTML="Typing..";
+
+        }
+
+        else if(typing.innerHTML=="Typing.."){
+
+            typing.innerHTML="Typing...";
+
+        }
+
+    }
+
+},400);
+
+
+// Enter Key
+userInput.addEventListener("keydown",function(e){
+
+    if(e.key==="Enter"){
 
         sendMessage();
 
